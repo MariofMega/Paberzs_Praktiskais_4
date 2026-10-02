@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "LINQ Vaicājumi";
+}
+
+<div class="text-center">
+    <h1 class="display-5 mb-4">Praktiskais uzdevums 3: LINQ Web Saskarnes</h1>
+    <p class="lead">Izvēlieties vienu no 6 vaicājumiem:</p>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6 mb-3">
+        <div class="card shadow-sm border-primary">
+            <div class="card-header bg-primary text-white font-weight-bold">Vaicājumi ar datu ievadi (3)</div>
+            <div class="list-group list-group-flush">
+                <a asp-action="GamesByGenre" class="list-group-item list-group-item-action">1. Meklēt spēles pēc žanra</a>
+                <a asp-action="DevsByCountry" class="list-group-item list-group-item-action">2. Meklēt izstrādātājus pēc valsts</a>
+                <a asp-action="GamesByPrice" class="list-group-item list-group-item-action">3. Spēles, kas lētākas par norādīto cenu</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <div class="card shadow-sm border-success">
+            <div class="card-header bg-success text-white font-weight-bold">Vaicājumi bez datu ievades (3)</div>
+            <div class="list-group list-group-flush">
+                <a asp-action="TopNewestGames" class="list-group-item list-group-item-action">4. TOP-3 jaunākās spēles</a>
+                <a asp-action="GamesPerDeveloper" class="list-group-item list-group-item-action">5. Spēļu skaits katram izstrādātājam</a>
+                <a asp-action="AllGamesOverview" class="list-group-item list-group-item-action">6. Pilns spēļu pārskats ar platformām</a>
+            </div>
+        </div>
+    </div>
+</div>

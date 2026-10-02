@@ -1,0 +1,28 @@
+﻿@model List<Paberzs_Praktiskais_3.Models.Game>
+<h2>1. Meklēt spēles pēc žanra</h2>
+<form method="get" class="row g-2 mb-3">
+    <div class="col-auto">
+        <input type="text" name="genre" class="form-control" placeholder="Piemēram: RPG vai Shooter" value="@ViewBag.SearchGenre" required />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Meklēt</button>
+        <a asp-action="Index" class="btn btn-secondary">Atpakaļ</a>
+    </div>
+</form>
+
+@if (Model.Any())
+{
+    <table class="table table-bordered table-striped">
+        <thead><tr><th>Nosaukums</th><th>Žanrs</th><th>Izstrādātājs</th><th>Cena</th></tr></thead>
+        <tbody>
+            @foreach (var g in Model)
+            {
+                <tr><td>@g.Title</td><td>@g.Genre</td><td>@g.Developer?.Name</td><td>@g.Price EUR</td></tr>
+            }
+        </tbody>
+    </table>
+}
+else if (!string.IsNullOrEmpty(ViewBag.SearchGenre))
+{
+    <div class="alert alert-warning">Spēles ar žanru '@ViewBag.SearchGenre' netika atrastas.</div>
+}

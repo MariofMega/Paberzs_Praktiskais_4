@@ -1,0 +1,12 @@
+﻿@model List<Paberzs_Praktiskais_3.Controllers.DeveloperGameCountViewModel>
+<h2>5. Spēļu skaits katram izstrādātājam</h2>
+<a asp-action="Index" class="btn btn-secondary mb-3">Atpakaļ</a>
+<table class="table table-bordered table-striped">
+    <thead><tr><th>Izstrādātājs</th><th>Kopējais spēļu skaits</th></tr></thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr><td>@item.DeveloperName</td><td><span class="badge bg-primary fs-6">@item.TotalGames</span></td></tr>
+        }
+    </tbody>
+</table>

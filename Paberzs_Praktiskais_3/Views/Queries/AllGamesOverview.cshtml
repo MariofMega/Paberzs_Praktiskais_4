@@ -1,0 +1,18 @@
+﻿@model List<Paberzs_Praktiskais_3.Models.Game>
+<h2>6. Pilns spēļu pārskats ar platformām</h2>
+<a asp-action="Index" class="btn btn-secondary mb-3">Atpakaļ</a>
+<table class="table table-bordered table-striped">
+    <thead><tr><th>Nosaukums</th><th>Platforma</th><th>Izstrādātājs</th><th>Gads</th><th>Cena</th></tr></thead>
+    <tbody>
+        @foreach (var g in Model)
+        {
+            <tr>
+                <td><strong>@g.Title</strong></td>
+                <td><span class="badge bg-success">@g.Platform?.Name</span></td>
+                <td>@g.Developer?.Name</td>
+                <td>@g.ReleaseYear</td>
+                <td>@g.Price EUR</td>
+            </tr>
+        }
+    </tbody>
+</table>

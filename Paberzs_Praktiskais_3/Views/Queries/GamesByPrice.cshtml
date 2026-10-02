@@ -1,0 +1,24 @@
+﻿@model List<Paberzs_Praktiskais_3.Models.Game>
+<h2>3. Spēles, kas lētākas par norādīto cenu</h2>
+<form method="get" class="row g-2 mb-3">
+    <div class="col-auto">
+        <input type="number" step="0.01" name="maxPrice" class="form-control" placeholder="Maks. cena (EUR)" value="@ViewBag.MaxPrice" required />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Filtrēt</button>
+        <a asp-action="Index" class="btn btn-secondary">Atpakaļ</a>
+    </div>
+</form>
+
+@if (Model.Any())
+{
+    <table class="table table-bordered table-striped">
+        <thead><tr><th>Nosaukums</th><th>Cena</th></tr></thead>
+        <tbody>
+            @foreach (var g in Model)
+            {
+                <tr><td>@g.Title</td><td>@g.Price EUR</td></tr>
+            }
+        </tbody>
+    </table>
+}

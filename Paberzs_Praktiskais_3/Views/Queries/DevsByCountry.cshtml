@@ -1,0 +1,28 @@
+﻿@model List<Paberzs_Praktiskais_3.Models.Developer>
+<h2>2. Meklēt izstrādātājus pēc valsts</h2>
+<form method="get" class="row g-2 mb-3">
+    <div class="col-auto">
+        <input type="text" name="country" class="form-control" placeholder="Piemēram: USA vai Poland" value="@ViewBag.SearchCountry" required />
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Meklēt</button>
+        <a asp-action="Index" class="btn btn-secondary">Atpakaļ</a>
+    </div>
+</form>
+
+@if (Model.Any())
+{
+    <table class="table table-bordered table-striped">
+        <thead><tr><th>Kompānija</th><th>Valsts</th></tr></thead>
+        <tbody>
+            @foreach (var d in Model)
+            {
+                <tr><td>@d.Name</td><td>@d.Country</td></tr>
+            }
+        </tbody>
+    </table>
+}
+else if (!string.IsNullOrEmpty(ViewBag.SearchCountry))
+{
+    <div class="alert alert-warning">Izstrādātāji no valsts '@ViewBag.SearchCountry' netika atrasti.</div>
+}

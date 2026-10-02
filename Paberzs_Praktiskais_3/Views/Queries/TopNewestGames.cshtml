@@ -1,0 +1,12 @@
+﻿@model List<Paberzs_Praktiskais_3.Models.Game>
+<h2>4. TOP-3 jaunākās spēles</h2>
+<a asp-action="Index" class="btn btn-secondary mb-3">Atpakaļ</a>
+<table class="table table-bordered table-striped">
+    <thead><tr><th>Nosaukums</th><th>Izdošanas gads</th><th>Žanrs</th></tr></thead>
+    <tbody>
+        @foreach (var g in Model)
+        {
+            <tr><td>@g.Title</td><td>@g.ReleaseYear</td><td>@g.Genre</td></tr>
+        }
+    </tbody>
+</table>
